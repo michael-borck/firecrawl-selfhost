@@ -8,17 +8,17 @@ Last verified: 2026-11-20, macOS 26.6, Docker 28/29, Node 26.
 
 | Service | Image | Host address | Auth |
 | --- | --- | --- | --- |
-| Firecrawl API | `ghcr.io/firecrawl/firecrawl:latest` | `0.0.0.0:3002` | none by default |
+| [Firecrawl API](https://github.com/firecrawl/firecrawl) | `ghcr.io/firecrawl/firecrawl:latest` | `0.0.0.0:3002` | none by default |
 | Playwright | `ghcr.io/firecrawl/playwright-service:latest` | internal | |
 | Queue DB | `ghcr.io/firecrawl/nuq-postgres:latest` | internal | |
 | Redis, RabbitMQ, FoundationDB | upstream | internal | |
 | SearXNG (search) | `searxng/searxng:latest` | `127.0.0.1:8888` | |
-| Firecrawl UI | `obeoneorg/firecrawl-ui` | `127.0.0.1:8080` | |
+| [Firecrawl UI](https://github.com/obeone/firecrawl-ui) | `obeoneorg/firecrawl-ui` | `127.0.0.1:8080` | |
 | Caddy gate (optional) | `caddy:2-alpine` | `0.0.0.0:3002` | bearer token |
 
 Clients that talk to it:
 
-- **Web UI** — `obeone/firecrawl-ui`, a static Vue app, settings in `localStorage`.
+- **Web UI** — [obeone/firecrawl-ui](https://github.com/obeone/firecrawl-ui), a static Vue app, settings in `localStorage`.
 - **CLI** — official `firecrawl-cli` via `npx`.
 - **Agent** — official `firecrawl-mcp`, pointed at the local API.
 - **Desktop** — use Chrome/Edge "Install page as app" or Safari "Add to Dock" on `:8080`. No Tauri app exists.
@@ -210,7 +210,7 @@ make clean          # also deletes .firecrawl/ and out/
 
 ## Licensing and conduct
 
-Firecrawl core is AGPL-3.0 (SDKs MIT). Running it locally or internally is unaffected. If you modify it and expose it as a hosted service, AGPL requires publishing your changes. The UI (`obeone/firecrawl-ui`) is a separate third-party project.
+[Firecrawl](https://github.com/firecrawl/firecrawl) core is AGPL-3.0 (SDKs MIT). Running it locally or internally is unaffected. If you modify it and expose it as a hosted service, AGPL requires publishing your changes. The UI ([obeone/firecrawl-ui](https://github.com/obeone/firecrawl-ui)) is a separate third-party project.
 
 Crawling public pages is generally lawful, but terms of service, `robots.txt`, copyright, and personal-data rules still apply. Do not bypass logins, paywalls, or CAPTCHAs, and do not hammer a site.
 
