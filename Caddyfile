@@ -1,0 +1,5 @@
+:3002 {
+	@noauth not header Authorization "Bearer {$FIRECRAWL_TOKEN}"
+	respond @noauth "unauthorized" 401
+	reverse_proxy api:3002
+}

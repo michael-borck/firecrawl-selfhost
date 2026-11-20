@@ -1,0 +1,16 @@
+services:
+  api:
+    environment:
+      SEARXNG_ENDPOINT: http://searxng:8080
+  searxng:
+    image: searxng/searxng:latest
+    restart: unless-stopped
+    networks:
+      - backend
+    environment:
+      SEARXNG_BASE_URL: http://searxng:8080/
+      SEARXNG_SECRET: ${SEARXNG_SECRET:?set SEARXNG_SECRET}
+    volumes:
+      - ./searxng/settings.yml:/etc/searxng/settings.yml:ro
+    ports:
+      - "127.0.0.1:8888:8080"

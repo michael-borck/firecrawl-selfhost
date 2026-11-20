@@ -1,0 +1,16 @@
+services:
+  api:
+    ports: !reset []
+  gateway:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - api
+    networks:
+      - backend
+    environment:
+      FIRECRAWL_TOKEN: ${FIRECRAWL_TOKEN:?set FIRECRAWL_TOKEN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    ports:
+      - "${PORT:-3002}:3002"
